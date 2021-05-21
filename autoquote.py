@@ -11,7 +11,6 @@ from PIL import ImageDraw
 from instabot import Bot
 from requests import get
 import time
-from bs4 import BeautifulSoup
 import textwrap
 
 #Advertisment
@@ -19,7 +18,7 @@ belowmsg="@theautoquote"
 
 #Extracting Quote from website //Step-1
 def quote():
-	url = 'https://t.me/s/UQuotes'
+	url = 'http://t.me/s/UQuotes'
 	page = requests.get(url)
 	soup = BeautifulSoup(page.content, 'html.parser')
 	cl = soup.findAll(class_='tgme_widget_message_text')
@@ -28,11 +27,9 @@ def quote():
 	count=0 #to get only top 5 news
 	for i in cl:
 		count=count+1
-		if(count==2):
+		if(count==5):
 			break
 
-		List.append("\n\n")
-		List.append(i.text.strip())
 	return List
 
 List=quote()
