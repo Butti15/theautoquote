@@ -11,6 +11,7 @@ from PIL import ImageDraw
 from instabot import Bot
 from requests import get
 import time
+import os
 import textwrap
 
 #Advertisment
@@ -27,22 +28,24 @@ def quote():
 	count=0 #to get only top 5 news
 	for i in cl:
 		count=count+1
-		if(count==5):
+		if(count==2):
 			break
-
-	return List
+		List.append(i.text)
+	return [i.replace('"','').
+	replace(",",",\n").
+	replace(".","\n").
+	replace("➖ @uQuotes ➖","") for i in List]
 
 List=quote()
+List.append("\n"+belowmsg)
 abcd = " ".join(List)
-print (abcd)
+#print (abcd)
 
-
-'''
 #Removing Old Files //Step-2
 #Removing Old Config Json Folder
 directory = "theautoquotes_uuid_and_cookie.json" #Directory name
-parent = r"config" #Parent Directory 
-path = os.path.join(parent, directory) #Path 
+parent = "config" #Parent Directory
+path = os.path.join(parent, directory) #Path
 
 #Remove the Directory
 try:
@@ -61,19 +64,18 @@ try:
 except OSError as error:
     print(error)
     print("Directory of Image can not be removed")
-		
+
 #Create Image object with the input image //Step-3
-img = Image.open('Backgrounds\\testo.png')
-#img = Image.open('F:\\TBC\\Auto Quotes\\Backgrounds\\test.jpg')
- 
+img = Image.open(r'Backgrounds/testo.png')
+
 #Initialise the drawing context with the image object as background
 draw = ImageDraw.Draw(img)
 
 #Create font object with the font file and specify desired size
-font_path = 'Font\\calibrili.ttf'
+font_path = r'Font/calibrili.ttf'
 font = ImageFont.truetype(font_path, size=42, encoding='unic')
 
-#Breaking Lines 
+#Breaking Lines
 def break_fix(text, width, font, draw):
     if not text:
         return
@@ -109,15 +111,13 @@ fit_text(img, abcd, (0,0,0), font)
 img = img.convert("RGB")
 img.save('quote.jpeg', "JPEG", quality=100, optimize=True)
 
-#If You want to display image
-img.show()
+#If You want to displayimage
+#img.show()
 
 #Sending to Instagram //Step-4
 bot = Bot()
 bot.login(username = "xxxxxxxxxxxxxxxx",
 		password = "xxxxxxxxxxxxxx")
-		
-bot.upload_photo('quote.jpeg',
-                caption ="Quote of the day :) #Quotes")
 
-'''
+bot.upload_photo('quote.jpeg',
+                caption ="#Quote of the day :) #TheAutoQuote")
