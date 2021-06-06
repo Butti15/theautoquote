@@ -43,9 +43,11 @@ abcd = " ".join(List)
 
 #Removing Old Files //Step-2
 #Removing Old Config Json Folder
-directory = "theautoquotes_uuid_and_cookie.json" #Directory name
+'''
+directory = "theautoquote_uuid_and_cookie.json" #Directory name
 parent = "config" #Parent Directory
-path = os.path.join(parent, directory) #Path
+'''
+path = r'/mnt/build2/butti/test/quote/config/theautoquotes_uuid_and_cookie.json' #Path
 
 #Remove the Directory
 try:
@@ -66,13 +68,13 @@ except OSError as error:
     print("Directory of Image can not be removed")
 
 #Create Image object with the input image //Step-3
-img = Image.open(r'Backgrounds/testo.png')
+img = Image.open(r'/mnt/build2/butti/test/quote/Backgrounds/testo.png')
 
 #Initialise the drawing context with the image object as background
 draw = ImageDraw.Draw(img)
 
 #Create font object with the font file and specify desired size
-font_path = r'Font/calibrili.ttf'
+font_path = r'/mnt/build2/butti/test/quote/Font/calibrili.ttf'
 font = ImageFont.truetype(font_path, size=42, encoding='unic')
 
 #Breaking Lines
@@ -116,8 +118,8 @@ img.save('quote.jpeg', "JPEG", quality=100, optimize=True)
 
 #Sending to Instagram //Step-4
 bot = Bot()
-bot.login(username = "xxxxxxxxxxxxxxxx",
-		password = "xxxxxxxxxxxxxx")
+bot.login(username = "theautoquote",
+		password = "Butti@1432")
 
 bot.upload_photo('quote.jpeg',
                 caption ="#Quote of the day :) #TheAutoQuote")

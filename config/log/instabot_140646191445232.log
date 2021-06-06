@@ -1,0 +1,42 @@
+2021-05-29 01:22:46,913 - instabot version: 0.117.0 (bot) - INFO - Instabot version: 0.117.0 Started
+2021-05-29 01:22:46,913 - instabot version: 0.117.0 (bot) - DEBUG - Bot imported from /mnt/build2/butti/.local/lib/python3.9/site-packages/instabot/bot/bot.py
+2021-05-29 01:22:46,914 - instabot version: 0.117.0 (api_login) - INFO - Not yet logged in starting: PRE-LOGIN FLOW!
+2021-05-29 01:22:47,343 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: accounts/get_prefill_candidates/ returned response: <Response [200]>
+2021-05-29 01:22:47,710 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: qe/sync/ returned response: <Response [200]>
+2021-05-29 01:22:48,076 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: launcher/sync/ returned response: <Response [200]>
+2021-05-29 01:22:48,437 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: accounts/contact_point_prefill/ returned response: <Response [200]>
+2021-05-29 01:22:50,253 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: accounts/login/ returned response: <Response [200]>
+2021-05-29 01:22:50,254 - instabot version: 0.117.0 (api) - INFO - Logged-in successfully as 'theautoquote'!
+2021-05-29 01:22:50,254 - instabot version: 0.117.0 (api_login) - INFO - LOGIN FLOW! Just logged-in: True
+2021-05-29 01:22:50,670 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: qe/sync/ returned response: <Response [200]>
+2021-05-29 01:22:51,182 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: launcher/sync/ returned response: <Response [200]>
+2021-05-29 01:22:51,581 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: zr/token/result/?device_id=android-3da4655cdbf733d8&token_hash=&custom_device_id=android-3da4655cdbf733d8&fetch_reason=token_expired returned response: <Response [200]>
+2021-05-29 01:22:51,993 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: multiple_accounts/get_account_family/ returned response: <Response [200]>
+2021-05-29 01:22:52,438 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: qe/sync/ returned response: <Response [200]>
+2021-05-29 01:22:53,208 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: igtv/browse_feed/?prefetch=1 returned response: <Response [200]>
+2021-05-29 01:22:53,597 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: creatives/ar_class/ returned response: <Response [200]>
+2021-05-29 01:22:54,243 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: feed/reels_tray/ returned response: <Response [200]>
+2021-05-29 01:22:55,977 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: feed/timeline/ returned response: <Response [200]>
+2021-05-29 01:22:56,391 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: media/blocked/ returned response: <Response [200]>
+2021-05-29 01:22:58,007 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: news/inbox/ returned response: <Response [200]>
+2021-05-29 01:22:58,460 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: loom/fetch_config/ returned response: <Response [200]>
+2021-05-29 01:22:59,046 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: scores/bootstrap/users/?surfaces=["autocomplete_user_list","coefficient_besties_list_ranking","coefficient_rank_recipient_user_suggestion","coefficient_ios_section_test_bootstrap_ranking","coefficient_direct_recipients_ranking_variant_2"] returned response: <Response [200]>
+2021-05-29 01:22:59,473 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: business/eligibility/get_monetization_products_eligibility_data/?product_types=branded_content returned response: <Response [200]>
+2021-05-29 01:22:59,870 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: business/branded_content/should_require_professional_account/ returned response: <Response [200]>
+2021-05-29 01:23:00,278 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: linked_accounts/get_linkage_status/ returned response: <Response [200]>
+2021-05-29 01:23:00,711 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: locations/request_country/ returned response: <Response [200]>
+2021-05-29 01:23:01,112 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: qp/get_cooldowns/?signed_body=signed_body=4b9c516a5410a3bc128e09c6104a7f042146b9c2023870560c63a43a7f66781c.4&ig_sig_key_version=4&ig_sig_key_version=4 returned response: <Response [200]>
+2021-05-29 01:23:01,518 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: users/arlink_download_info/?version_override=2.2.1 returned response: <Response [200]>
+2021-05-29 01:23:02,391 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: users/48034880608/info/ returned response: <Response [200]>
+2021-05-29 01:23:03,141 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: direct_v2/get_presence/ returned response: <Response [200]>
+2021-05-29 01:23:03,804 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: direct_v2/inbox/?visual_message_return_type=unseen&thread_message_limit=10&persistentBadging=true&limit=20 returned response: <Response [200]>
+2021-05-29 01:23:04,239 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: direct_v2/inbox/?visual_message_return_type=unseen&persistentBadging=true&limit=0 returned response: <Response [200]>
+2021-05-29 01:23:06,323 - instabot version: 0.117.0 (api) - DEBUG - GET to endpoint: discover/topical_explore/?is_prefetch=true&omit_cover_media=true&use_sectional_payload=true&timezone_offset=0&session_id=268f3ec6-5368-40ca-a01d-c8816a69d4a6&include_fixed_destinations=true returned response: <Response [200]>
+2021-05-29 01:23:06,742 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: notifications/badge/ returned response: <Response [200]>
+2021-05-29 01:23:07,297 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: qp/batch_fetch/ returned response: <Response [200]>
+2021-05-29 01:23:07,298 - instabot version: 0.117.0 (bot_checkpoint) - DEBUG - Loading Checkpoint file from: /mnt/build2/butti/test/quote/config/theautoquote.checkpoint
+2021-05-29 01:23:29,682 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: media/configure/? returned response: <Response [200]>
+2021-05-29 01:23:30,104 - instabot version: 0.117.0 (api) - DEBUG - POST to endpoint: qe/expose/ returned response: <Response [200]>
+2021-05-29 01:23:30,105 - instabot version: 0.117.0 (bot_photo) - INFO - Photo 'quote.jpeg' is uploaded.
+2021-05-29 01:23:30,105 - instabot version: 0.117.0 (bot_checkpoint) - DEBUG - Saving Checkpoint file to: /mnt/build2/butti/test/quote/config/theautoquote.checkpoint
+2021-05-29 01:23:30,106 - instabot version: 0.117.0 (bot) - INFO - Total requests: 43
