@@ -47,7 +47,7 @@ abcd = " ".join(List)
 directory = "theautoquote_uuid_and_cookie.json" #Directory name
 parent = "config" #Parent Directory
 '''
-path = r'/mnt/build2/butti/test/quote/config/theautoquotes_uuid_and_cookie.json' #Path
+path = r'/mnt/build2/butti/test/quote/config/theautoquote_uuid_and_cookie.json' #Path
 
 #Remove the Directory
 try:
@@ -67,8 +67,15 @@ except OSError as error:
     print(error)
     print("Directory of Image can not be removed")
 
+#New Path Remove
+path33 = r'/mnt/build2/butti/config/theautoquote_uuid_and_cookie.json'
+try:
+    os.remove(path33)
+except OSError as error:
+    print("Cant be rmfed")
+
 #Create Image object with the input image //Step-3
-img = Image.open(r'/mnt/build2/butti/test/quote/Backgrounds/testo.png')
+img = Image.open(r'/mnt/build2/butti/test/quote/Backgrounds/testm.png')
 
 #Initialise the drawing context with the image object as background
 draw = ImageDraw.Draw(img)
@@ -111,7 +118,7 @@ def fit_text(img, text, color, font):
 
 fit_text(img, abcd, (0,0,0), font)
 img = img.convert("RGB")
-img.save('quote.jpeg', "JPEG", quality=100, optimize=True)
+img.save('/mnt/build2/butti/test/quote/quote.jpeg', "JPEG", quality=100, optimize=True)
 
 #If You want to displayimage
 #img.show()
@@ -121,5 +128,5 @@ bot = Bot()
 bot.login(username = "theautoquote",
 		password = "Butti@1432")
 
-bot.upload_photo('quote.jpeg',
+bot.upload_photo('/mnt/build2/butti/test/quote/quote.jpeg',
                 caption ="#Quote of the day :) #TheAutoQuote")
