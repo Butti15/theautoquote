@@ -32,22 +32,19 @@ def quote():
 			break
 		List.append(i.text)
 	return [i.replace('"','').
-	replace(",",",\n").
-	replace(".","\n").
-	replace("➖ @uQuotes ➖","") for i in List]
+	#replace(",",",\n").
+	#replace(".","\n").
+	replace("➖ @uQuotes ➖","\n\n") for i in List]
 
 List=quote()
-List.append("\n"+belowmsg)
+List.append("\n"+"")
 abcd = " ".join(List)
 #print (abcd)
 
 #Removing Old Files //Step-2
 #Removing Old Config Json Folder
-'''
-directory = "theautoquote_uuid_and_cookie.json" #Directory name
-parent = "config" #Parent Directory
-'''
 path = r'/mnt/build2/butti/test/quote/config/theautoquote_uuid_and_cookie.json' #Path
+#For PC :) path = r'config/theautoquotes_uuid_and_cookie.json' #Path
 
 #Remove the Directory
 try:
@@ -58,7 +55,7 @@ except OSError as error:
     print("Directory of Config can not be removed")
 
 #Removing the old Image
-path2 = 'quote.jpeg.REMOVE_ME'
+path2 = '/mnt/build2/butti/test/quote/quote.jpeg.REMOVE_ME'
 
 try:
     os.remove(path2)
@@ -73,60 +70,49 @@ try:
     os.remove(path33)
 except OSError as error:
     print("Cant be rmfed")
-
+	
 #Create Image object with the input image //Step-3
-img = Image.open(r'/mnt/build2/butti/test/quote/Backgrounds/testm.png')
+def draw_multiple_line_text(image, text, font, text_color, text_start_height):
+    draw = ImageDraw.Draw(image)
+    image_width, image_height = image.size
+    y_text = text_start_height
+    lines = textwrap.wrap(text, width=60)
+    for line in lines:
+        line_width, line_height = font.getsize(line)
+        draw.text(((image_width - line_width) / 2, y_text), 
+                  line, font=font, fill=text_color)
+        y_text += line_height
 
-#Initialise the drawing context with the image object as background
-draw = ImageDraw.Draw(img)
+def main():
+    #image_width
+    image = Image.open(r'/mnt/build2/butti/test/quote/Backgrounds/testo.png')
+    font_path = r'/mnt/build2/butti/test/quote/Font/calibrili.ttf'
+    fontsize = 40  # starting font size
+    font = ImageFont.truetype(font_path, fontsize)
+    text1 = (abcd)
+    #text2 = "You could use textwrap.wrap to break text into a list of strings, each at most width characters long"
 
-#Create font object with the font file and specify desired size
-font_path = r'/mnt/build2/butti/test/quote/Font/calibrili.ttf'
-font = ImageFont.truetype(font_path, size=42, encoding='unic')
+    text_color = (0, 0, 0)
+    text_start_height = 500
+    draw_multiple_line_text(image, text1, font, text_color, text_start_height)
+    #draw_multiple_line_text(image, text2, font, text_color, 400)
+    image.save('/mnt/build2/butti/test/quote/quote.png')
+    #image.show('quote.jpeg')
 
-#Breaking Lines
-def break_fix(text, width, font, draw):
-    if not text:
-        return
-    lo = 0
-    hi = len(text)
-    while lo < hi:
-        mid = (lo + hi + 1) // 2
-        t = text[:mid]
-        w, h = draw.textsize(t, font=font)
-        if w <= width:
-            lo = mid
-        else:
-            hi = mid - 21
-    t = text[:lo]
-    w, h = draw.textsize(t, font=font)
-    yield t, w, h
-    yield from break_fix(text[lo:], width, font, draw)
+if __name__ == "__main__":
+    main()
 
-def fit_text(img, text, color, font):
-    width = img.size[0] - 2
-    draw = ImageDraw.Draw(img)
-    pieces = list(break_fix(text, width, font, draw))
-    height = sum(p[2] for p in pieces)
-    if height > img.size[1]:
-        raise ValueError("text doesn't fit")
-    y = (img.size[1] - height) // 2
-    for t, w, h in pieces:
-        x = (img.size[0] - w) // 2
-        draw.text((x, y), t, font=font, fill=color, align="center")
-        y += h
+#Converting Files
+im = Image.open("/mnt/build2/butti/test/quote/quote.png")
+rgb_im = im.convert('RGB')
+rgb_im.save('/mnt/build2/butti/test/quote/quote.jpg')
 
-fit_text(img, abcd, (0,0,0), font)
-img = img.convert("RGB")
-img.save('/mnt/build2/butti/test/quote/quote.jpeg', "JPEG", quality=100, optimize=True)
-
-#If You want to displayimage
-#img.show()
-
+'''
 #Sending to Instagram //Step-4
 bot = Bot()
 bot.login(username = "theautoquote",
 		password = "Butti@1432")
 
-bot.upload_photo('/mnt/build2/butti/test/quote/quote.jpeg',
+bot.upload_photo('/mnt/build2/butti/test/quote/quote.jpg',
                 caption ="#Quote of the day :) #TheAutoQuote")
+'''
