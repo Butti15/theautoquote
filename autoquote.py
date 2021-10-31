@@ -32,8 +32,7 @@ def quote():
 			break
 		List.append(i.text)
 	return [i.replace('"','').
-	#replace(",",",\n").
-	#replace(".","\n").
+	replace('#*',"\n").
 	replace("➖ @uQuotes ➖","\n\n") for i in List]
 
 List=quote()
@@ -43,7 +42,7 @@ abcd = " ".join(List)
 
 #Removing Old Files //Step-2
 #Removing Old Config Json Folder
-path = r'/mnt/build2/butti/test/quote/config/theautoquote_uuid_and_cookie.json' #Path
+path = r'/mnt/build/butti/test/quote/config/theautoquote_uuid_and_cookie.json' #Path
 #For PC :) path = r'config/theautoquotes_uuid_and_cookie.json' #Path
 
 #Remove the Directory
@@ -55,7 +54,7 @@ except OSError as error:
     print("Directory of Config can not be removed")
 
 #Removing the old Image
-path2 = '/mnt/build2/butti/test/quote/quote.jpeg.REMOVE_ME'
+path2 = '/mnt/build/butti/test/quote/quote.jpeg.REMOVE_ME'
 
 try:
     os.remove(path2)
@@ -65,7 +64,7 @@ except OSError as error:
     print("Directory of Image can not be removed")
 
 #New Path Remove
-path33 = r'/mnt/build2/butti/config/theautoquote_uuid_and_cookie.json'
+path33 = r'/mnt/build/butti/config/theautoquote_uuid_and_cookie.json'
 try:
     os.remove(path33)
 except OSError as error:
@@ -76,7 +75,7 @@ def draw_multiple_line_text(image, text, font, text_color, text_start_height):
     draw = ImageDraw.Draw(image)
     image_width, image_height = image.size
     y_text = text_start_height
-    lines = textwrap.wrap(text, width=60)
+    lines = textwrap.wrap(text, width=50) #This area is to control the strechness of texts: More the font size les the strachness.
     for line in lines:
         line_width, line_height = font.getsize(line)
         draw.text(((image_width - line_width) / 2, y_text), 
@@ -85,34 +84,35 @@ def draw_multiple_line_text(image, text, font, text_color, text_start_height):
 
 def main():
     #image_width
-    image = Image.open(r'/mnt/build2/butti/test/quote/Backgrounds/testo.png')
-    font_path = r'/mnt/build2/butti/test/quote/Font/calibrili.ttf'
-    fontsize = 40  # starting font size
+    image = Image.open(r'/mnt/build/butti/test/quote/Backgrounds/testo.png')
+    font_path = r'/mnt/build/butti/test/quote/Font/calibrili.ttf'
+    fontsize = 50  # starting font size
     font = ImageFont.truetype(font_path, fontsize)
     text1 = (abcd)
-    #text2 = "You could use textwrap.wrap to break text into a list of strings, each at most width characters long"
-
     text_color = (0, 0, 0)
-    text_start_height = 500
+    text_start_height = 400
     draw_multiple_line_text(image, text1, font, text_color, text_start_height)
-    #draw_multiple_line_text(image, text2, font, text_color, 400)
-    image.save('/mnt/build2/butti/test/quote/quote.png')
-    #image.show('quote.jpeg')
+    image.save('/mnt/build/butti/test/quote/quote.png')
+    #image.show('quote.jpeg')0
 
 if __name__ == "__main__":
     main()
 
 #Converting Files
-im = Image.open("/mnt/build2/butti/test/quote/quote.png")
+im = Image.open("/mnt/build/butti/test/quote/quote.png")
 rgb_im = im.convert('RGB')
-rgb_im.save('/mnt/build2/butti/test/quote/quote.jpg')
+rgb_im.save('/mnt/build/butti/test/quote/quote.jpeg')
 
-'''
 #Sending to Instagram //Step-4
 bot = Bot()
 bot.login(username = "theautoquote",
 		password = "Butti@1432")
 
-bot.upload_photo('/mnt/build2/butti/test/quote/quote.jpg',
-                caption ="#Quote of the day :) #TheAutoQuote")
-'''
+bot.upload_photo('/mnt/build/butti/test/quote/quote.jpeg',
+                caption ="#Quote of the day :) #JustAThought #TheAutoQuote")
+
+#Fwd to TG
+bot_token='1210963493:AAFjt7ZTSx7_eB9AS0_a2x4CjqAW0UEe2xU'
+chat_tag='@HumanTales'
+bot = telebot.TeleBot(token=bot_token)
+bot.send_photo(chat_tag, photo=open('/mnt/build/butti/test/quote/quote.png', 'rb'), caption=str("Quote of the Day #JustAThought \n\nJoin @HumanTales"), timeout=10)
